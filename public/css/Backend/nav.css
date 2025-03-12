@@ -1,0 +1,90 @@
+.top-menu {
+  background-color: white;
+  width: 100%;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+}
+.top-menu .logout-div p {
+  background-color: #f5f5f5;
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+  color: #c00;
+  font-size: 13px;
+  cursor: default;
+}
+.top-menu .logout-div .icon {
+  color: white;
+  background-color: #c00;
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+  font-size: 13px;
+}
+.top-menu .logout-div .icon svg {
+  transition: 0.3s;
+}
+.top-menu .logout-div .icon:hover svg {
+  transform: scale(1.2);
+}
+
+#navMenu.rolled {
+  width: 5vw;
+}
+
+nav {
+  transition: width 0.5s ease;
+  overflow: hidden;
+  width: 20vw;
+  background-color: #202b2f;
+  min-height: 100vh;
+}
+nav .logo-div img {
+  width: 60%;
+}
+nav .add-client-div {
+  padding: 12px 15px 12px 15px;
+}
+nav .add-client-div a {
+  background-color: forestgreen;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+nav ul {
+  margin: 0;
+  padding: 0;
+}
+nav ul li {
+  padding: 12px 15px 12px 15px;
+  transition: 0.1s;
+}
+nav ul li a {
+  display: flex;
+  align-items: center;
+  color: #b8c7ce;
+  font-size: 14px;
+}
+nav ul li svg {
+  margin-right: 10px;
+  height: 20px;
+  width: 20px;
+}
+nav ul li:hover {
+  background-color: #2e3c42;
+}
+
+footer {
+  margin-top: 5vh;
+  background: #fff;
+  padding: 15px;
+  color: #444;
+}
+footer p {
+  font-size: 14px;
+  font-weight: 700;
+}
+footer p a {
+  color: #fba51a;
+}
+
+/*# sourceMappingURL=nav.css.map */

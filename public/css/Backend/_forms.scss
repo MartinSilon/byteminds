@@ -1,0 +1,63 @@
+.container{
+    textarea{
+        resize: none;
+    }
+    select{
+        background-color: transparent !important;
+        border: none !important;
+        &:focus,  &:focus-visible{
+            color: $grey;
+            box-shadow: none;
+            background-color: transparent;
+        }
+    }
+    .form-control{
+        color: $grey;
+        border: $border;
+        &:focus,  &:focus-visible{
+            color: $grey;
+            border: $border;
+            box-shadow: none;
+        }
+
+    }
+    input{
+        border: $border !important;
+    }
+    input[type="checkbox"] {
+        width: 15px;
+        height: 15px;
+        cursor: pointer;
+    }
+
+    label{
+        color: $grey;
+        margin-bottom: 0;
+        padding-bottom: 0;
+        margin-top: 5px;
+        align-items: center;
+    }
+
+    button{
+        border: $border !important;
+        &:hover{
+            border-color: green !important;
+        }
+    }
+    table{
+        height: 100%;
+        th{
+            color: $grey;
+            border-bottom: $border !important;
+            min-width: 40px;
+        }
+        td{
+            color: $grey;
+            border-bottom: $border !important;
+            height: 30px;
+            a{
+                color: #357cc8;
+            }
+        }
+    }
+}
