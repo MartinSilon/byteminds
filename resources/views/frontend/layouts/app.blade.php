@@ -15,7 +15,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;700&display=swap" rel="stylesheet">
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js" async></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
 
 
     <meta charset="UTF-8">
@@ -31,47 +32,49 @@
 
 
 <body>
-
-{{--<div class="container-fluid headBar d-lg-block d-none">--}}
-{{--    <div class="row">--}}
-{{--        <div class="col-3  mt-3">--}}
-{{--            <div class="d-flex justify-content-center">--}}
-{{--                <i class="bi bi-geo-alt-fill" style="color: #fbc402; "></i>--}}
-{{--                <p class="text-white headText ps-2 small">Horný Val 8/17, 01001 Žilina</p>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--        <div class="col-3  mt-3">--}}
-{{--            <div class="d-flex justify-content-center">--}}
-{{--                <i class="bi bi-envelope-fill" style="color: #fbc402; "></i>--}}
-{{--                <a class="text-decoration-none" href="mailto:poradca@newgreencompany.sk"><p class="text-decoration-none text-white headText ps-2 small">poradca@newgreencompany.sk</p></a>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--        <div class="col-2 offset-md-2 mt-md-0 mt-3 pe-0 pb-0" style="border-right: 1px solid #1e3226">--}}
-{{--            <a href="{{ route('find-customer') }}">--}}
-{{--                <button class="w-100 h-100 btn-request">--}}
-{{--                    <span>Nájsť zákazníka</span>--}}
-{{--                </button>--}}
-{{--            </a>--}}
-{{--        </div>--}}
-{{--        <div class="col-2 mt-md-0 mt-3 pe-0 pb-0 ps-0">--}}
-{{--            <a href="{{ route('interest') }}">--}}
-{{--            <button class="w-100 h-100 btn-request">--}}
-{{--                <span>Mám záujem o spoluprácu</span>--}}
-{{--            </button>--}}
-{{--            </a>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</div>--}}
+    <div class="loader">
+        <div class="loader-left"></div>
+        <div class="loader-right"></div>
+        <div class="loader-logo">
+            <div class="loader-ring"></div>
+            <img src="{{ asset('images/structure/logo-shortform.svg') }}" alt="Logo" height="100px" width="100px"/>
+        </div>
+    </div>
 
 @include('frontend.components.nav-bar')
 
 <main>
-    @yield('content') <!-- Tu sa vloží obsah podstránok -->
+    @yield('content')
 </main>
 
 
 @include('frontend.components.footer')
 
+
+
+
+    <script>
+        setTimeout(function() {
+            var logo = document.querySelector(".loader-logo");
+            logo.style.transition = "opacity 0.3s ease-in-out";
+            logo.style.opacity = "0";
+
+            var loaderLeft = document.querySelector(".loader-left");
+            loaderLeft.style.transition = "transform 0.4s ease-in-out";
+            loaderLeft.style.transform = "translateX(-100%)";
+
+            var loaderRight = document.querySelector(".loader-right");
+            loaderRight.style.transition = "transform 0.4s ease-in-out";
+            loaderRight.style.transform = "translateX(100%)";
+
+            setTimeout(function() {
+                var loader = document.querySelector(".loader");
+                if(loader) {
+                    loader.remove();
+                }
+            }, 1000);
+        }, 1000);
+    </script>
 
 </body>
 </html>

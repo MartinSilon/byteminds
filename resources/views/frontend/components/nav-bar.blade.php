@@ -7,7 +7,7 @@
                          style="height: 60px; transition: all 0.3s ease;">
                 </a>
                 <a class="navbar-brand d-none d-md-block d-lg-block" href="/">
-                    <img src="{{ asset('images/structure/logo-shortform.svg') }}" alt="Byteminds - rýchle aj komplexné riešenia" id="logo" class=""
+                    <img class="md-logo" src="{{ asset('images/structure/logo-shortform.svg') }}" alt="Byteminds - rýchle aj komplexné riešenia" id="logo" class=""
                          style="height: 60px; transition: all 0.3s ease;">
                 </a>
 
@@ -87,7 +87,7 @@
     document.addEventListener("DOMContentLoaded", function() {
         const lastItem = document.getElementById("lastItem");
         const otherItems = document.querySelectorAll(".navbar-nav li:not(#lastItem)");
-        const logo = document.querySelectorAll(".navbar-brand img");
+        const logo = document.querySelectorAll(".navbar-brand .md-logo");
 
         function checkScroll() {
             const width = lastItem.offsetWidth;

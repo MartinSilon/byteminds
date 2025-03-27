@@ -1,62 +1,76 @@
 @import "variables";
 
-.navbar-wrapper{
+.navbar-wrapper {
     width: 100%;
-    .container-fluid{
-        width: 40%;
-        @media(max-width: 768px){
+
+    .container-fluid {
+        width: 60%;
+
+        @media (max-width: 768px) {
             width: 100%;
         }
     }
-    .navbar{
-        background-color: $whitegrey;
+
+    .navbar {
+        background-color: rgba(239, 239, 239, 0.8);
+        -webkit-backdrop-filter: blur(2px);
+        backdrop-filter: blur(2px);
         border-radius: 2rem;
+
         // PC MENU
-        .navbar-collapse{
-            li{
+        .navbar-collapse {
+            li {
                 min-height: 60px;
-                a{
+
+                a {
                     font-size: 14px;
                     color: $grey;
                     font-weight: 500;
-                    &:hover{
+
+                    &:hover {
                         color: $darkblue;
                     }
                 }
             }
-            li:last-child{
+
+            li:last-child {
                 opacity: 0;
                 transform: translateY(-250px);
-                a{
+
+                a {
                     font-size: 14px;
-                    color:$darkblue ;
-                    font-weight: 500;
-                    &:hover{
+                    color: $darkblue;
+                    font-weight: 600;
+
+                    &:hover {
                         color: $grey;
                     }
                 }
             }
         }
 
-
-        //MOBILE MENU
-        .navbar-toggler{
+        // MOBILE MENU
+        .navbar-toggler {
             border: none !important;
-            &:focus, &:focus-visible{
+
+            &:focus,
+            &:focus-visible {
                 outline: none !important;
                 border: none !important;
                 box-shadow: none !important;
             }
         }
 
-        .offcanvas{
+        .offcanvas {
             top: 85px;
-            li{
-                a{
+
+            li {
+                a {
                     font-size: 20px;
                     color: $darkblue;
                 }
             }
+
             li:last-child {
                 background-color: $darkblue;
                 font-weight: bold;
@@ -64,73 +78,87 @@
                 cursor: pointer;
                 transition: background-color 0.3s ease;
                 min-width: 100vw;
-                a{
+
+                a {
                     color: white;
                 }
             }
-            .sub-link{
-                a{
+
+            .sub-link {
+                a {
                     font-size: 20px;
                     color: $grey;
                     border-bottom: 1px solid $darkblue;
                 }
             }
         }
+
         .offcanvas-backdrop.show {
             opacity: 0;
         }
     }
 }
 
-footer{
-
-    .bg-white{
+footer {
+    .bg-white {
         color: $grey;
-        p{
-            margin-bottom: 0px;
+
+        p {
+            margin-bottom: 0;
             font-size: 14px;
-            span{
+
+            span {
                 font-weight: 600;
             }
         }
     }
-    .top-footer{
+
+    .top-footer {
         border-radius: 2rem;
         background-color: #f6f7fa;
-        li{
+
+        li {
             color: $darkblue;
-            a{
+
+            a {
                 color: $darkblue;
                 text-decoration: none;
                 text-transform: uppercase;
                 font-size: 14px;
                 font-weight: 500;
                 transition: 0.3s;
-                &:hover{
+
+                &:hover {
                     color: $blue;
                 }
             }
         }
     }
-    .bottom-footer{
+
+    .bottom-footer {
         background-color: $darkblue;
         border-radius: 2rem;
-        p{
+
+        p {
             font-size: 16px;
             font-weight: 400;
-            a{
+
+            a {
                 text-decoration: none;
                 color: $white;
             }
         }
-        .links{
+
+        .links {
             font-size: 14px;
             color: $grey;
-            a{
+
+            a {
                 text-decoration: underline;
                 color: $lightgrey;
                 transition: 0.3s;
-                &:hover{
+
+                &:hover {
                     color: $white;
                 }
             }

@@ -2,62 +2,289 @@
 @import 'slider';
 @import 'forms';
 
-
-.poppins-thin {
-    font-family: "Poppins", sans-serif;
-    font-weight: 100;
+@font-face {
+    font-family: 'Satoshi';
+    src: url('fonts/Satoshi-Medium.ttf') format('ttf'),
+    url('fonts/Satoshi-Medium.ttf') format('woff');
+    font-weight: normal;
     font-style: normal;
 }
-
-.poppins-extralight {
-    font-family: "Poppins", sans-serif;
-    font-weight: 200;
-    font-style: normal;
-}
-
-.poppins-light {
-    font-family: "Poppins", sans-serif;
-    font-weight: 300;
-    font-style: normal;
-}
-
-.poppins-regular {
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-}
-
-.poppins-medium {
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    font-style: normal;
-}
-
-.poppins-bold {
-    font-family: "Poppins", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-}
-
 
 
 
 *{
     margin: 0;
     padding: 0;
+
 }
-body{
-    font-family: "Poppins", sans-serif;
-    font-weight: 300;
-    font-style: normal;
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: 9999;
 }
 
+.loader-left,
+.loader-right {
+    flex: 1;
+    background: white;
+}
+
+.loader-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+}
+
+.loader-logo img {
+    max-width: 150px;
+    display: block;
+    position: relative;
+    z-index: 2;
+}
+
+.loader-logo .loader-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    width: 150px;
+    height: 150px;
+    border: 3px solid #ccc;
+    border-radius: 50%;
+    z-index: 1;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0.3;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0.8;
+    }
+}
+
+
+
+
+
+a{
+    text-decoration: none;
+}
+p{
+    color: $grey;
+}
+body{
+    font-family: "Satoshi", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+
+}
 
 
 .box{
     background-color: $whitegrey;
     min-height: 70vh;
     border-radius: 2rem;
+    position: relative;
+    transition: 0.3s;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    &:hover{
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+
+
+    .position-relative{
+        height: 40vh;
+    }
+
+    h4{
+        color: $grey;
+        font-weight: 500;
+        height: 60px;
+
+        span{
+            color: $darkblue;
+            font-weight: 600;
+        }
+    }
+    p{
+        color: #5c5858;
+    }
+    img.absolute{
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        top:  43%;
+        transform: translate(-50%,-50%);
+        @media (max-width: 768px) {
+            top: 100px;
+        }
+    }
+}
+
+header{
+    margin-top: 6em;
+}
+.section{
+    margin-bottom: 2em;
+}
+.section-title{
+    font-size: 3rem;
+    color: $grey;
+    text-shadow: $shadow;
+}
+.section-title__medium{
+    font-size: 1.5rem;
+    color: $grey;
+    text-shadow: $shadow;
+}
+.section-title__small{
+    font-size: 1.2rem;
+    color: $grey;
+    text-shadow: $shadow;
+}
+.section-title__blue{
+    color: $darkblue;
 }
 
 
+
+.section__1 .box {
+    overflow: hidden;
+    position: relative;
+}
+
+/* Štýly pre časovú os */
+.timeline {
+    position: relative;
+    padding-left: 60px;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 30px; /* umiestnenie čiary */
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: $grey;
+    height: 420px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    left: -50px;
+    background-color: $darkblue;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+
+
+.section__2 {
+    position: relative;
+    overflow: hidden;
+    padding: 3rem 0;
+
+    .box {
+        background-color: rgba($darkblue, 0.85);
+        overflow: hidden;
+        position: relative;
+        min-height: max-content;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        text-align: center;
+
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, rgba($darkblue, 0.8), rgba($white, 0.2), rgba($darkblue, 0.8));
+            animation: rotateBackground 5s linear infinite;
+            z-index: -1;
+        }
+
+
+        h3 {
+            color: $white;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        h5 {
+            color: $white;
+            font-weight: normal;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeInUp 1.2s ease forwards;
+        }
+
+        .btn__1 {
+            background-color: $white;
+            color: $darkblue;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            padding: 0.75rem 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 1.4s ease forwards;
+
+            &:hover {
+                transform: scale(1.05);
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            }
+        }
+    }
+}
+
+// Kľúčové animácie
+@keyframes rotateBackground {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

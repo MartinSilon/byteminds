@@ -9,11 +9,16 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
+    public function inProgress()
+    {
+        return view('frontend.home', compact('blogs'));
+    }
     public function home()
     {
         $blogs = Blog::orderBy('created_at', 'desc')->limit(3)->get();
         return view('frontend.home', compact('blogs'));
     }
+
 
     public function about()
     {
