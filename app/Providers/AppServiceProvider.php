@@ -22,8 +22,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        \Carbon\Carbon::setLocale('sk');
-        View::share('text', new Text);
-        View::share('photo', new Photo);
+//        \Carbon\Carbon::setLocale('sk');
+//        View::share('text', new Text);
+//        View::share('photo', new Photo);
     }
 }

@@ -1,0 +1,411 @@
+// -- HEADER
+.section__header{
+    .box:hover{
+        transform: translateY(-10px) scale(1.02) !important;
+    }
+    margin-top: 6em;
+    .text-header{
+        h6{
+            font-size: 3rem;
+            color: #2C3E50;
+            margin: 0;
+            font-weight: bold;
+        }
+        p{
+            font-size: 1.5rem;
+            color: #7F8C8D;
+            margin-top: 10px;
+        }
+    }
+    .position-relative{
+        height: 40vh;
+    }
+    img.absolute{
+        position: absolute;
+        left: 50%;
+        top:  43%;
+        transform: translate(-50%,-50%);
+        @media (max-width: 768px) {
+            top: 100px;
+        }
+    }
+    h4{
+        font-size: 2rem;
+        color: $dark;
+        margin-bottom: 10px;
+        font-weight: 800;
+    }
+    .subtitle {
+        font-size: 1.3rem;
+        color: $grey;
+        max-width: 800px;
+        margin: 0 auto 40px auto;
+        line-height: 1.5;
+    }
+    .description {
+        font-size: 1rem;
+        margin: 0 auto 40px auto;
+        color: $dark;
+        line-height: 1.6;
+    }
+
+}
+
+
+// -- CONTACT US MODUL
+.section__contact-us {
+    position: relative;
+    overflow: hidden;
+    padding: 3rem 0;
+
+    .box {
+        background-color: rgba($darkblue, 0.85);
+        overflow: hidden;
+        position: relative;
+        min-height: max-content;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        transform: translateY(-10px) scale(1.00);
+
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, rgba($darkblue, 0.8), rgba($white, 0.2), rgba($darkblue, 0.8));
+            animation: rotateBackground 5s linear infinite;
+            z-index: -1;
+        }
+
+
+        h3 {
+            color: $white;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        h5 {
+            font-size: 1.5rem;
+            color: $white;
+            font-weight: normal;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeInUp 1.2s ease forwards;
+        }
+
+        .btn__1 {
+            background-color: $white;
+            color: $darkblue;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            padding: 0.75rem 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 1.4s ease forwards;
+
+            &:hover {
+                transform: scale(1.05);
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            }
+        }
+    }
+}
+@keyframes rotateBackground {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+// -- HORIZONTAL CLIENT SECTION
+.section__clients{
+    padding-top: 4rem;
+
+
+    //--color: rgba(114, 114, 114, 0.3);
+    //background-color: transparent;
+    //background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent),
+    //linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent);
+    //background-size: 55px 55px;
+
+
+    .scroll-container {
+        h6{
+            color: $dark;
+            font-size: 2rem;
+            .subtitle{
+                color: $white;
+            }
+        }
+        .project-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: nowrap;
+            height: 100vh;
+            .client-div {
+                flex-shrink: 0;
+                width: 75vw;
+                height: 70vh;
+                background-size: cover !important;
+                background-repeat: no-repeat;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                img{
+                    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+                    background-color: $whitegrey;
+                    border-radius: 2rem;
+                    position: relative;
+                    max-height: 70vh;
+                    max-width: 75vw;
+                }
+                .client-div__button {
+                    display: flex;
+                    align-items: center;
+                    background-color: $dark;
+                    color: $white;
+                    border-radius: 2rem;
+                    font-size: 1.1rem;
+                    font-weight: 900;
+                    max-width: max-content;
+                    transition: 0.3s ease;
+                    position: relative;
+                    overflow: hidden;
+                    height: 3rem;
+                    background-size: 400%;
+                    border: none;
+                    cursor: pointer;
+                    &:hover::before {
+                        transform: scaleX(1);
+                    }
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        transform: scaleX(0);
+                        transform-origin: 0 50%;
+                        width: 100%;
+                        height: inherit;
+                        border-radius: inherit;
+                        background: linear-gradient(
+                                82.3deg,
+                                $blue 10.8%,
+                                $purple 94.3%
+                        );
+                        transition: all 0.475s;
+                    }
+                    .button-content {
+                        position: relative;
+                        z-index: 1;
+                    }
+                }
+                &__blue{
+                    h3{
+                        color: $white;
+                    }
+                    .client-div__button {
+                        border: 3px solid $white;
+                        color: $white;
+                    }
+                    --u: 5px;
+                    --c1: #ededee;
+                    --c2: #000000;
+                    --c3: #1e1e1e;
+                    --gp: 50% / calc(var(--u) * 16.9) calc(var(--u) * 12.8);
+                    background: conic-gradient(
+                            from 122deg at 50% 85.15%,
+                            var(--c2) 0 58deg,
+                            var(--c3) 0 116deg,
+                            #fff0 0 100%
+                    )
+                    var(--gp),
+                    conic-gradient(from 122deg at 50% 72.5%, var(--c1) 0 116deg, #fff0 0 100%)
+                    var(--gp),
+                    conic-gradient(from 58deg at 82.85% 50%, var(--c3) 0 64deg, #fff0 0 100%)
+                    var(--gp),
+                    conic-gradient(
+                            from 58deg at 66.87% 50%,
+                            var(--c1) 0 64deg,
+                            var(--c2) 0 130deg,
+                            #fff0 0 100%
+                    )
+                    var(--gp),
+                    conic-gradient(from 238deg at 17.15% 50%, var(--c2) 0 64deg, #fff0 0 100%)
+                    var(--gp),
+                    conic-gradient(
+                            from 172deg at 33.13% 50%,
+                            var(--c3) 0 66deg,
+                            var(--c1) 0 130deg,
+                            #fff0 0 100%
+                    )
+                    var(--gp),
+                    linear-gradient(98deg, var(--c3) 0 15%, #fff0 calc(15% + 1px) 100%)
+                    var(--gp),
+                    linear-gradient(-98deg, var(--c2) 0 15%, #fff0 calc(15% + 1px) 100%)
+                    var(--gp),
+                    conic-gradient(
+                            from -58deg at 50.25% 14.85%,
+                            var(--c3) 0 58deg,
+                            var(--c2) 0 116deg,
+                            #fff0 0 100%
+                    )
+                    var(--gp),
+                    conic-gradient(from -58deg at 50% 28.125%, var(--c1) 0 116deg, #fff0 0 100%)
+                    var(--gp),
+                    linear-gradient(90deg, var(--c2) 0 50%, var(--c3) 0 100%) var(--gp);
+                    border-radius: 2rem;
+
+                    .client-div__button {
+                        background-color: transparent;
+                        color: $white;
+                        &:hover{
+                            color: black;
+                        }
+                        &::before {
+                            background: linear-gradient(
+                                    82.3deg,
+                                    $white 10.8%,
+                                    $white 94.3%
+                            );
+                        }
+
+                    }
+                }
+
+            }
+
+        }
+
+
+    }
+}
+
+
+// -- TIMELINE SECTION
+.section__timeline{
+    .row{
+        height: 80vh;
+
+    }
+    .box {
+        overflow: hidden;
+        position: relative;
+        .timeline {
+            position: relative;
+            padding-left: 60px;
+            &::before {
+                content: "";
+                position: absolute;
+                left: 30px;
+                top: 0;
+                bottom: 0;
+                width: 2px;
+                background-color: $grey;
+                height: 330px;
+            }
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+        .timeline-marker {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            left: -50px;
+            background-color: $dark;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+    }
+
+    form{
+        input, textarea, button{
+            border-radius: 1rem !important;
+            font-weight: 300;
+            &:focus, &:focus-visible{
+
+                box-shadow: none !important;
+            }
+        }
+    }
+    .box{
+        &:hover{
+            transform: scale(1.00);
+        }
+        &__captcha{
+            min-height: max-content;
+        }
+    }
+}
+
+
+.section_beClient{
+    .box{
+        background-color: rgba($dark, 1);
+        overflow: hidden;
+        position: relative;
+        min-height: max-content;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        transform: translateY(-10px) scale(1.00);
+        height: 80vh;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 180%;
+            background: linear-gradient(45deg, rgba($dark, 0.8), rgba(black, 0.2), rgba($dark, 0.8));
+            animation: rotateBackground 5s linear infinite;
+            z-index: -1;
+        }
+
+        h5{
+            font-size: 1.2rem;
+            color: $darkblue;
+            font-weight: 100;
+            letter-spacing: 2px;
+        }
+        h3{
+            font-size: 2rem;
+            font-weight: 900;
+            color: $white;
+            line-height: 64px;
+        }
+        p{
+            color: $grey;
+            font-size: 1.2rem;
+        }
+        a{
+            display: flex;
+            align-items: center;
+            background-color: $darkblue;
+            color: $white;
+            border-radius: 2rem;
+            font-size: 1.1rem;
+            font-weight: 900;
+            border: none;
+            transition: all 0.5s ease-in-out;
+        }
+    }
+}

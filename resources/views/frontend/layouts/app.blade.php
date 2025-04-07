@@ -5,9 +5,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
-{{--    <script src="{{ asset('js/frontend/script.js') }}"></script>--}}
     <link rel="stylesheet" href="{{ asset('css/Frontend/app.css') }}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,7 +39,17 @@
         </div>
     </div>
 
-@include('frontend.components.nav-bar')
+    <div id="top"></div>
+
+    <a href="#top" class="button scroll-link">
+        <svg class="svgIcon" viewBox="0 0 384 512">
+            <path
+                d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"
+            ></path>
+        </svg>
+    </a>
+
+    @include('frontend.components.nav-bar')
 
 <main>
     @yield('content')
@@ -50,8 +58,8 @@
 
 @include('frontend.components.footer')
 
-
-
+@yield('scripts')
+    <script src="{{ asset('js/frontend/navbar.js') }}"></script>
 
     <script>
         setTimeout(function() {
@@ -75,6 +83,36 @@
             }, 1000);
         }, 1000);
     </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const scrollBtn = document.querySelector('.scroll-link');
+
+            scrollBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+
+            function toggleScrollButton() {
+                if (window.scrollY > 300) {
+                    gsap.to(scrollBtn, { opacity: 1, y: 0, duration: 0.4, pointerEvents: "auto" });
+                } else {
+                    gsap.to(scrollBtn, { opacity: 0, y: 100, duration: 0.4, pointerEvents: "none" });
+                }
+            }
+
+            window.addEventListener("scroll", toggleScrollButton);
+            toggleScrollButton();
+        });
+    </script>
+
+
+    {{--    <script src="https://www.google.com/recaptcha/api.js" async defer></script>--}}
+
 
 </body>
 </html>

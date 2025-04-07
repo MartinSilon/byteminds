@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 
 
+//Route::get('/', function () {
+//    return view('home');
+//});
+
 Route::get('/', [PageController::class, 'home'])->name('home');
 
 Route::get('/dokumenty', [PageController::class, 'documents'])->name('documents');
