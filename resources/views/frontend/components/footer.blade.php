@@ -1,5 +1,5 @@
-<footer id="top-footer" class="container px-5">
-    <div class="row justify-content-center top-footer px-5 pt-5 box">
+<footer id="top-footer" class="container px-md-5 px-3">
+    <div class="row justify-content-center top-footer px-5 pt-md-5 py-5 pb-md-0 box">
         <div class="col-md-12">
             <h5 class="mb-4">Fakturačné údaje</h5>
             <div class="row align-items-end">
@@ -15,7 +15,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <ul class="d-md-flex justify-content-around top-footer top-footer__color py-3 pt-5 px-5">
+                    <ul class="d-md-flex d-none justify-content-around  py-md-3 pt-5 px-md-5 px-0">
                         <li><a href="">Domov</a></li>
                         <li><a href="">Služby</a></li>
                         <li><a href="">Referencie</a></li>
@@ -28,8 +28,8 @@
     </div>
 </footer>
 
-<footer id="bottom-footer" class="container px-5 mt-3">
-    <div class="row px-5 py-3 box">
+<footer id="bottom-footer" class="container px-md-5 px-3 mt-md-3">
+    <div class="row px-5  py-3 box">
         <div class="col-12 ps-md-5">
             <p class="mb-0">Copyright ©{{ date('Y') }}
                 <a href="https://www.byteminds.sk" target="_blank">Byteminds.sk</a>

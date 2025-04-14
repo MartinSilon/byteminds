@@ -12,7 +12,7 @@
     <link rel="icon" href="{{ asset('images/structure/logo-shortform.svg') }}" type="image/icon type">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/Backend/app.css') }}">
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 

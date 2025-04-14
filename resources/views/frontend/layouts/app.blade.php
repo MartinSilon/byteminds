@@ -1,32 +1,46 @@
 <!DOCTYPE html>
 <html lang="sk">
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- SEO: Title & Meta Description -->
+    <title>Tvorba systémových riešení a moderných webových aplikácií | Byteminds</title>
+    <meta name="description" content="Optimalizujte firemné procesy pomocou inovatívnych webových aplikácií a systémových riešení. Spoľahlivý vývoj, moderný dizajn a bezpečnosť pre váš rast.">
+    <meta name="keywords" content="webové aplikácie, systémové riešenia, digitálne služby, tvorba webov, optimalizácia procesov, Byteminds, vývoj softvéru">
+    <meta name="author" content="Byteminds">
 
-    <link rel="stylesheet" href="{{ asset('css/Frontend/app.css') }}">
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.tvojadomena.sk/">
 
+    <!-- Open Graph (pre sociálne siete) -->
+    <meta property="og:title" content="Tvorba systémových riešení a moderných webových aplikácií | Byteminds">
+    <meta property="og:description" content="Pomáhame firmám rásť pomocou inovatívnych systémových riešení a optimalizácie procesov.">
+    <meta property="og:image" content="https://www.byteminds.sk/images/structure/og-image.jpg">
+    <meta property="og:url" content="https://www.byteminds.sk/">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon -->
+    <link rel="icon" href="{{ asset('images/structure/logo-shortform.svg') }}" type="image/svg+xml">
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;700&display=swap" rel="stylesheet">
 
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/Frontend/app.css') }}">
 
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js" async></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
 
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Title -->
-    <title> @yield('title')</title>
-    <link rel="icon" href="{{ asset('images/structure/logo-shortform.svg') }}" type="image/icon type">
-
-    <!-- CSS -->
     @yield('style')
 </head>
+
 
 
 <body>

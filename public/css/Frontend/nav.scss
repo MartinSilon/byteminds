@@ -5,7 +5,7 @@
     width: 100%;
 
     .container-fluid {
-        width: 40%;
+        width: max-content;
 
         @media (max-width: 768px) {
             width: 100%;
@@ -25,8 +25,9 @@
 
                 a {
                     font-size: 0.85rem;
+                    letter-spacing: 1px;
                     color: $white;
-                    font-weight: 500;
+                    font-weight: 400;
 
                     &:hover {
                         color: $darkblue;
@@ -42,9 +43,10 @@
                     font-size: 0.85rem;
                     color: $darkblue;
                     font-weight: 600;
+                    transition: 0.2s ease;
 
                     &:hover {
-                        color: $grey;
+                        color: $white;
                     }
                 }
             }
@@ -106,7 +108,10 @@
 
 // -- FOOTER --
 #top-footer {
-    margin-top: 20vh !important;
+    margin-top: 10vh !important;
+    @media (max-width: 768px) {
+        margin-top: 5vh !important;
+    }
     .box{
         min-height: max-content;
         &:hover{
@@ -118,10 +123,12 @@
             font-weight: 900;
         }
         ul{
+            flex-wrap: wrap !important  ;
+
             li {
-                color: $dark;
-                border-radius: 2rem;
-                transition: 0.3s ease;
+                @media (max-width: 768px) {
+                    width: max-content !important;
+                }
                 a {
                     color: $dark;
                     text-decoration: none;
@@ -140,7 +147,7 @@
 
 #bottom-footer {
     .box{
-        background-color: $darkblue;
+        background-color: $dark;
         min-height: max-content;
         &:hover{
             transform: scale(1.0);
@@ -170,6 +177,28 @@
         }
     }
 
+}
 
+
+@media (max-width: 768px) {
+    .navbar-wrapper {
+        width: 100%;
+        .navbar {
+            .offcanvas{
+                height: 100vh;
+                background-color: $dark;
+                border-radius: 2rem;
+                ul{
+                    li{
+                        a{
+                            color: $white !important;
+                            font-weight: 500;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
 
 }

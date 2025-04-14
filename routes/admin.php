@@ -10,6 +10,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TicketController;
+use App\Http\Controllers\TestingController;
 
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'send'])->name('login');
@@ -58,5 +59,22 @@ Route::prefix('/admin/')->middleware('auth')->group(function (){
     Route::post('/storeClient', [TicketController::class, 'storeClient'])->name('ticket.client.store');
     Route::delete('/deleteClient/{ticketClient}', [TicketController::class, 'destroyClient'])->name('ticket.client.destroy');
     Route::put('/updateClient/{ticketClient}', [TicketController::class, 'updateClient'])->name('ticket.client.update');
+
+
+
+    Route::prefix('testing')->name('testing.')->group(function () {
+        Route::get('/', [TestingController::class, 'index'])->name('index');
+
+        // Vytvorenie test plánu
+        Route::get('/plan/create', [TestingController::class, 'createTestPlan'])->name('create-plan');
+        Route::post('/plan/store', [TestingController::class, 'storeTestPlan'])->name('store-plan');
+
+        // Ostatné routy pre test cases a test runs
+        Route::get('/case/create/{planId}', [TestingController::class, 'createTestCase'])->name('create-case');
+        Route::post('/case/store', [TestingController::class, 'storeTestCase'])->name('store-case');
+        Route::get('/case/{id}', [TestingController::class, 'showTestCase'])->name('show-case');
+        Route::post('/run/store', [TestingController::class, 'storeTestRun'])->name('store-run');
+    });
+
 
 });

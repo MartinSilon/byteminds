@@ -83,7 +83,6 @@
 
 
 @endsection
-
 @section('script')
 
     <script>
@@ -154,6 +153,7 @@
                                     employeeOptions += '<option value="' + item.id + '">' + item.name + '</option>';
                                 });
 
+                                // Generovanie offcanvas formulára pre daný ticket
                                 offcanvasHtml += '<form method="POST" action="/admin/ticket/' + ticket.id + '" class="offcanvas offcanvas-bottom h-75 px-0" data-bs-scroll="true" tabindex="-1" id="offcanvas-ticket-' + ticket.id + '">';
                                 offcanvasHtml += '  <input type="hidden" name="_token" value="' + csrfToken + '">';
                                 offcanvasHtml += '  <input type="hidden" name="_method" value="put">';
@@ -187,7 +187,8 @@
                                 offcanvasHtml += '        <textarea name="description" id="description" class="form-control" rows="15">' + ticket.description + '</textarea>';
                                 offcanvasHtml += '        <h6 class="mt-4 mb-1">Cesta k problému:</h6>';
                                 offcanvasHtml += '        <input type="text" name="url" id="url" class="form-control" value="' + ticket.url + '">';
-                                offcanvasHtml += '        <button type="submit" class="form-control mt-3 w-25">Upraviť</button>';
+                                // Odstránené tlačidlo pre submit
+                                // offcanvasHtml += '        <button type="submit" class="form-control mt-3 w-25">Upraviť</button>';
                                 offcanvasHtml += '      </div>';
                                 offcanvasHtml += '      <div class="col-7">';
                                 offcanvasHtml += '        <img src="" alt="">';
@@ -214,5 +215,35 @@
             $('#domain, #status, #employee').on('change', loadTickets);
         });
     </script>
-@endsection
 
+    <!-- Autosave script: Pri každej zmene vo formulári sa po 2 sekundách po nečinnosti odošle AJAX požiadavka -->
+    <script>
+        // Objekt pre ukladanie timeoutov pre jednotlivé formuláre
+        var autosaveTimers = {};
+
+        // Event handler aplikovaný na dynamicky vložené offcanvas formuláre
+        $(document).on('input change', '.offcanvas input, .offcanvas textarea, .offcanvas select', function() {
+            var form = $(this).closest('form');
+            var formId = form.attr('id');
+
+            if (autosaveTimers[formId]) {
+                clearTimeout(autosaveTimers[formId]);
+            }
+
+            autosaveTimers[formId] = setTimeout(function() {
+                $.ajax({
+                    url: form.attr('action'),
+                    type: 'POST',  // Používame POST, pretože _method je nastavené na put vo formulári
+                    data: form.serialize(),
+                    success: function(response) {
+                        console.log('Ticket ' + formId + ' bol autosaved.');
+                        // Tu môžeš pridať vizuálnu notifikáciu, napr. malý "Uložené" text
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Autosave chyba pre ' + formId + ': ' + error);
+                    }
+                });
+            }, 2000); // 2000 ms = 2 sekundy
+        });
+    </script>
+@endsection
