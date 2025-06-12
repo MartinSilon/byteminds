@@ -13,10 +13,11 @@
     }
 
     .navbar {
-        background-color: rgba(44, 62, 80, 0.8);
-        -webkit-backdrop-filter: blur(2px);
-        backdrop-filter: blur(2px);
+        background-color: rgba($white, 0.85);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
         border-radius: 2rem;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 
         // PC MENU
         .navbar-collapse {
@@ -26,8 +27,8 @@
                 a {
                     font-size: 0.85rem;
                     letter-spacing: 1px;
-                    color: $white;
-                    font-weight: 400;
+                    color: $dark;
+                    font-weight: 500;
 
                     &:hover {
                         color: $darkblue;
@@ -66,6 +67,9 @@
 
         .offcanvas {
             top: 85px;
+            background-color: rgba($white, 0.95);
+            -webkit-backdrop-filter: blur(8px);
+                    backdrop-filter: blur(8px);
 
             li {
                 a {
